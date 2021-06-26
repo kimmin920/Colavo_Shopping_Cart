@@ -11,7 +11,7 @@ const store = configureStore({
 
 type RootState = ReturnType<typeof store.getState>;
 
-export const selectCart = (state: RootState) => state.cart.items;
+export const selectCart = (state: RootState) => state.cart;
 
 export const selectSalonItems = (state: RootState) => state.salon.data.items;
 export const selectSalonDiscounts = (state: RootState) => state.salon.data.discounts;
