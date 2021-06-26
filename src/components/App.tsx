@@ -1,11 +1,13 @@
 import { Provider } from 'react-redux';
-import store from './store/store';
+import store from '../store';
+import Cart from './Cart';
+import Item from './Item';
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-      </div>
+      <Cart />
+      <Item />
     </Provider>
   );
 }
