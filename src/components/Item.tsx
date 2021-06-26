@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { selectSalon } from '../store';
+import { selectSalonItems } from '../store';
 import { addItem, removeItem } from '../store/cartSlice';
 import { fetchSalonData } from '../store/salonSlice';
 
-export default function Item() {
+export default function Item(): JSX.Element {
   const dispatch = useDispatch();
-  const items = useSelector(selectSalon);
+  const items = useSelector(selectSalonItems);
+  const itemsArray = Object.values(items);
 
   useEffect(() => {
     async function getItems() {
@@ -16,19 +17,29 @@ export default function Item() {
     getItems();
   }, [dispatch]);
 
-  console.log(items);
   return (
-    <div>
-      <button
-        onClick={() => dispatch(addItem({ id: 1, name: 'any', count: 1, price: 3000 }))}
-      >
-        add
-      </button>
-      <button
-        onClick={() => dispatch(removeItem(3))}
-      >
-        remove
-      </button>
-    </div>
-  )
+    <>
+      {itemsArray.map(item =>
+        (<div key={item.id}>
+          <div>
+            {item.name}
+            {item.price}
+          </div>
+          <div>
+            {item.count}
+          </div>
+          <button
+            onClick={() => dispatch(addItem(item))}
+          >
+            add
+          </button>
+          <button
+            onClick={() => dispatch(removeItem(item.id))}
+          >
+            remove
+          </button>
+        </div>)
+      )}
+    </>
+  );
 }

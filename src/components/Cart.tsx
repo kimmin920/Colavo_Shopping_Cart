@@ -9,7 +9,7 @@ function Cart() {
       <h1>CART</h1>
       {items.length > 0
         ? items.map(item =>
-          <div>
+          <div key={item.id}>
             {item.name}
           </div>)
         : 'no items'}
