@@ -12,6 +12,9 @@ const store = configureStore({
 type RootState = ReturnType<typeof store.getState>;
 
 export const selectCart = (state: RootState) => state.cart.items;
-export const selectSalon = (state: RootState) => state.salon;
+
+export const selectSalonItems = (state: RootState) => state.salon.data.items;
+export const selectSalonDiscounts = (state: RootState) => state.salon.data.discounts;
+export const selectSalonCurrency = (state: RootState) => state.salon.data.currencyCode;
 
 export default store;
