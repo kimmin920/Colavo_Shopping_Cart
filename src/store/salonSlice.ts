@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-type Item = { id?: string, count: number, name: string, price: number };
-type Discount = { id?: string, name: string, rate: number };
+type Item = { id: string, count: number, name: string, price: number };
+type Discount = { id: string, name: string, rate: number };
 
 interface FetchError {
   message: string;

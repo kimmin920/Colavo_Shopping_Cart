@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Item {
-  id: number;
+  id: string;
   count: number;
   name: string;
   price: number;
@@ -20,16 +20,9 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<Item>) => {
-      state.items = [
-        ...state.items,
-        {
-          ...action.payload,
-          // NOTE: it's overriding id
-          id: state.items.length,
-        },
-      ];
+      state.items.push(action.payload);
     },
-    removeItem: (state, action: PayloadAction<number>) => {
+    removeItem: (state, action: PayloadAction<string>) => {
         state.items = state.items.filter(({ id }) => id !== action.payload );
     },
     addDiscount: () => {},
