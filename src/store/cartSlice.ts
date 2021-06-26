@@ -20,6 +20,10 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<Item>) => {
+      if (state.items.some(item => item.id === action.payload.id)) {
+        return;
+      }
+
       state.items.push(action.payload);
     },
     removeItem: (state, action: PayloadAction<string>) => {
