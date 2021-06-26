@@ -2,20 +2,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { selectSalonItems } from '../store';
 import { addItem, removeItem } from '../store/cartSlice';
-import { fetchSalonData } from '../store/salonSlice';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
   const items = useSelector(selectSalonItems);
   const itemsArray = Object.values(items);
-
-  useEffect(() => {
-    async function getItems() {
-      await dispatch(fetchSalonData());
-    }
-
-    getItems();
-  }, [dispatch]);
 
   return (
     <>
