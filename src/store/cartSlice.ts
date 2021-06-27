@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { calculateTotalPrice, calculateItemPrice, calculateTotalDiscounts } from '../utils/calculatePrice';
+import {
+  calculateTotalPrice,
+  calculateItemPrice,
+  calculateTotalDiscounts,
+} from '../utils/calculatePrice';
 
 interface Item {
   id: string;
@@ -10,12 +14,12 @@ interface Item {
   discount?: number;
 };
 
-type Discount = {
+interface Discount {
   id: string,
   name: string,
   rate: number,
   appliedItemIds?: string[],
-  discountPrice?: number,
+  totalPrice?: number,
 };
 
 interface CartSliceState {
