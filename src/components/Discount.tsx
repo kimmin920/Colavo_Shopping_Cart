@@ -2,6 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectSalonDiscounts } from '../store';
 import { addDiscount } from '../store/cartSlice';
+import {
+  StyledList,
+  StyledListItem,
+  StyledItemTitle,
+  StyledItemDiscount,
+} from '../styles/styledListItem';
 
 export default function Discount(): JSX.Element {
   const dispatch = useDispatch();
@@ -9,19 +15,25 @@ export default function Discount(): JSX.Element {
   const discountsArray = Object.values(discounts);
 
   return (
-    <List>
+    <StyledList>
       {discountsArray.map(discount => (
-        <div key={discount.id}>
-          {discount.name}
-          {discount.rate}
+        <StyledListItem key={discount.id}>
+          <div>
+            <StyledItemTitle>
+              {discount.name}
+            </StyledItemTitle>
+            <StyledItemDiscount>
+              {discount.rate}
+            </StyledItemDiscount>
+          </div>
           <button
             onClick={() => dispatch(addDiscount(discount))}
           >
             select
           </button>
-        </div>
+        </StyledListItem>
       ))}
-    </List>
+    </StyledList>
   );
 }
 
