@@ -28,7 +28,9 @@ function App() {
     <AppContainer>
       <Router>
         <Link to='/items'>+ 시술</Link>
+        {' '}
         <Link to='/discount'>- 할인</Link>
+        {' '}
         <Link to='/'>카트</Link>
         <Switch>
           <Route exact path='/' component={Cart} />
@@ -43,20 +45,16 @@ function App() {
 
 export default App;
 
-const ColumnBox = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const AppContainer = styled.div`
   width: 400px;
   height: 600px;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
+  padding: 1rem;
   box-shadow: ${({ theme }) => theme.boxShadow};
 
-  & > div {
+  & > * {
     ${({ theme }) => css`
       animation: ${theme.keyframes.fadeInUp} .5s ease-in-out;
     `};
