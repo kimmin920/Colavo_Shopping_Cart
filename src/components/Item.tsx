@@ -1,7 +1,12 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { selectSalonItems } from '../store';
 import { addItem, removeItem } from '../store/cartSlice';
+import {
+  StyledList,
+  StyledListItem,
+  StyledItemTitle,
+  StyledItemDescription,
+} from '../styles/styledListItem';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
@@ -9,28 +14,36 @@ export default function Item(): JSX.Element {
   const itemsArray = Object.values(items);
 
   return (
-    <>
+    <StyledList>
       {itemsArray.map(item =>
-        (<div key={item.id}>
-          <div>
-            {item.name}
-            {item.price}
-          </div>
-          <div>
-            {item.count}
-          </div>
-          <button
-            onClick={() => dispatch(addItem(item))}
+        (
+          <StyledListItem
+            key={item.id}
           >
-            add
-          </button>
-          <button
-            onClick={() => dispatch(removeItem(item.id))}
-          >
-            remove
-          </button>
-        </div>)
+            <div>
+              <StyledItemTitle>
+                {item.name}
+              </StyledItemTitle>
+              <StyledItemDescription>
+                {item.price}
+              </StyledItemDescription>
+            </div>
+            <div>
+            <button
+              onClick={() => dispatch(removeItem(item.id))}
+            >
+              delete
+            </button>
+              {item.count}
+            <button
+              onClick={() => dispatch(addItem(item))}
+            >
+              add
+            </button>
+            </div>
+          </StyledListItem>
+        )
       )}
-    </>
+    </StyledList>
   );
 }
