@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSalonItems } from '../../store';
+import { selectSalonCurrency, selectSalonItems } from '../../store';
 import { addItem, removeItem } from '../../store/cartSlice';
 import {
   StyledList,
@@ -7,11 +7,13 @@ import {
   StyledItemTitle,
   StyledItemDescription,
 } from '../../styles/styledListItem';
+import getLocalCurrency from '../../utils/getLocalCurrency';
 import NavHeader from '../shared/NavHeader';
 
 export default function Item() {
   const dispatch = useDispatch();
   const items = useSelector(selectSalonItems);
+  const currencyCode = useSelector(selectSalonCurrency);
   const itemsArray = Object.values(items);
 
   return (
@@ -28,15 +30,10 @@ export default function Item() {
                   {item.name}
                 </StyledItemTitle>
                 <StyledItemDescription>
-                  {item.price}
+                  {getLocalCurrency(item.price, currencyCode)}
                 </StyledItemDescription>
               </div>
               <div>
-              <button
-                onClick={() => dispatch(removeItem(item.id))}
-              >
-                delete
-              </button>
                 {item.count}
               <button
                 onClick={() => dispatch(addItem(item))}

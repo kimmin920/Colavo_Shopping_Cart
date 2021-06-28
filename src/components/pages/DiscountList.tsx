@@ -7,6 +7,7 @@ import {
   StyledItemTitle,
   StyledItemDiscount,
 } from '../../styles/styledListItem';
+import getPercentage from '../../utils/getPercentage';
 import NavHeader from '../shared/NavHeader';
 
 export default function Discount(): JSX.Element {
@@ -25,7 +26,7 @@ export default function Discount(): JSX.Element {
                 {discount.name}
               </StyledItemTitle>
               <StyledItemDiscount>
-                {discount.rate}
+                {getPercentage(discount.rate)}%
               </StyledItemDiscount>
             </div>
             <button
