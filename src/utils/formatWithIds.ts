@@ -1,7 +1,18 @@
-import { ObjectValueHavingIds, ObjectHavingKeys } from '../types/salon.types';
+import {
+  Items,
+  Discounts,
+} from '../types/salon.types';
 
-export default function formatWithIds(object: ObjectHavingKeys): ObjectValueHavingIds {
-  const result: ObjectHavingKeys = {};
+type FormattableObject = Items | Discounts;
+
+interface formattedObject {
+  [key: string]: {
+    id: string;
+  };
+}
+
+export default function formatWithIds(object: FormattableObject): formattedObject {
+  const result: FormattableObject = {};
 
   const keys = Object.keys(object);
 

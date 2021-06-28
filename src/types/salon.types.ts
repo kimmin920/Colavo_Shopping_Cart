@@ -41,9 +41,3 @@ export interface SalonDataState {
   status: FetchStatus;
   error: FetchError | null;
 }
-
-export interface ObjectValueHavingIds {
-  [key: string]: {
-    id: string;
-  };
-}

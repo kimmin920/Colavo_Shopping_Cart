@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { CartSliceState } from '../types/cart.types';
+import { CurrencyCode } from '../types/global.types';
+import { Discounts, Items } from '../types/salon.types';
 import cartSlice from './cartSlice';
 import salonSlice from './salonSlice';
 
@@ -11,10 +14,10 @@ const store = configureStore({
 
 type RootState = ReturnType<typeof store.getState>;
 
-export const selectCart = (state: RootState) => state.cart;
+export const selectCart = (state: RootState): CartSliceState => state.cart;
 
-export const selectSalonItems = (state: RootState) => state.salon.data.items;
-export const selectSalonDiscounts = (state: RootState) => state.salon.data.discounts;
-export const selectSalonCurrency = (state: RootState) => state.salon.data.currencyCode;
+export const selectSalonItems = (state: RootState): Items => state.salon.data.items;
+export const selectSalonDiscounts = (state: RootState): Discounts => state.salon.data.discounts;
+export const selectSalonCurrency = (state: RootState): CurrencyCode => state.salon.data.currencyCode;
 
 export default store;

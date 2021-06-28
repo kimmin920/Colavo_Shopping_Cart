@@ -11,7 +11,7 @@ import { selectCart } from '../../store';
 import { updateTotalPrice } from '../../store/cartSlice';
 import { StyledList } from '../../styles/styledListItem';
 
-function Cart() {
+function Cart(): JSX.Element {
   const { items, totalPrice, discounts } = useSelector(selectCart);
   const dispatch = useDispatch();
 
@@ -27,8 +27,8 @@ function Cart() {
       <StyledList>
         {items.length > 0
           ? items.map(item =>
-              <CartItem key={item.id} item={item} />
-            )
+            <CartItem key={item.id} item={item} />,
+          )
           : <EmptyNotice />}
         <div>
           {discounts.map(discount => (
