@@ -4,13 +4,13 @@ import { selectSalonCurrency } from '../store';
 import { decreaceItemCount, increaseItemCount, removeItem } from '../store/cartSlice';
 import { RowContainer } from '../styles/RowContainer';
 import { StyledListItem, StyledItemTitle, StyledItemDescription } from '../styles/styledListItem';
-import { CartItem } from '../types/cart.types';
+import { CartItem as CartItemType } from '../types/cart.types';
 import getLocalCurrency from '../utils/getLocalCurrency';
 import DeleteButton from './shared/DeleteButton';
 import QuantitySelector from './shared/QuantitySelector';
 
 type CartItemProps = {
-  item: CartItem,
+  item: CartItemType,
 };
 
 export default function CartItem({ item }: CartItemProps): JSX.Element {
