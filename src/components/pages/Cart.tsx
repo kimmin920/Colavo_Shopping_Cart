@@ -1,10 +1,7 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCart, selectSalonCurrency } from '../../store';
+import { selectCart } from '../../store';
 import {
-  removeItem,
-  decreaceItemCount,
-  increaseItemCount,
   updateTotalPrice,
 } from '../../store/cartSlice';
 import {
@@ -19,38 +16,7 @@ import CartFooter from '../CartFooter';
 import NavHeader from '../shared/NavHeader';
 import EmptyNotice from '../shared/EmptyNotice';
 import getPercentage from '../../utils/getPercentage';
-import getLocalCurrency from '../../utils/getLocalCurrency';
-import QuantitySelector from '../shared/QuantitySelector';
-import DeleteButton from '../shared/DeleteButton';
-import { RowContainer } from '../../styles/RowContainer';
-
-function EachItem({ item }: any) {
-  const dispatch = useDispatch();
-  const currencyCode = useSelector(selectSalonCurrency);
-
-  return (
-    <>
-    <StyledListItem>
-      <div>
-        <StyledItemTitle>{item.name}</StyledItemTitle>
-        <StyledItemDescription>
-          {getLocalCurrency(item.count * item.price, currencyCode)}
-        </StyledItemDescription>
-      </div>
-      <RowContainer>
-        <QuantitySelector
-          value={item.count}
-          onStepDown={() => dispatch(decreaceItemCount({ id: item.id, count: 1 }))}
-          onStepUp={() => dispatch(increaseItemCount({ id: item.id, count: 1 }))}
-        />
-        <DeleteButton
-          onClick={() => dispatch(removeItem(item.id))}
-        />
-      </RowContainer>
-    </StyledListItem>
-    </>
-  );
-}
+import CartItem from '../CartItem';
 
 function CartDiscount({ discount }: any) {
   const { items } = useSelector(selectCart);
@@ -122,7 +88,7 @@ function Cart() {
       <StyledList>
         {items.length > 0
           ? items.map(item =>
-              <EachItem key={item.id} item={item} />
+              <CartItem key={item.id} item={item} />
             )
           : <EmptyNotice />}
         <div>
