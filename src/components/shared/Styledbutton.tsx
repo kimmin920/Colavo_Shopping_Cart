@@ -11,7 +11,7 @@ export default function Styledbutton({
   text,
   disabled = false,
   onClick,
-}: StyledButtonProps) {
+}: StyledButtonProps): JSX.Element {
   return (
     <StyledButton
       onClick={onClick}

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ShoppingCartPurple } from '../../styles/styledIcons';
 
-export default function EmptyNotice() {
+export default function EmptyNotice(): JSX.Element {
   return (
     <NoticeContainer>
       <ShoppingCartPurple size={40} />

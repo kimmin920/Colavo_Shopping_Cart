@@ -6,7 +6,9 @@ type DeleteButtonProps = {
   onClick: MouseEventHandler,
 };
 
-export default function DeleteButton({ onClick }: DeleteButtonProps) {
+export default function DeleteButton({
+  onClick,
+}: DeleteButtonProps): JSX.Element {
   return (
     <StyledButton
       onClick={onClick}

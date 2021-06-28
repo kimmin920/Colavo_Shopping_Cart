@@ -4,14 +4,21 @@ import {
   StyledItemDescription,
   StyledItemDiscount,
 } from '../styles/styledListItem';
+import {
+  CartDiscount as CartDiscountType,
+  CartItem,
+} from '../types/cart.types';
 import getPercentage from '../utils/getPercentage';
 
 type CartDiscountProps = {
-  discount: any,
-  items: any,
+  discount: CartDiscountType,
+  items: CartItem[],
 };
 
-export default function CartDiscount({ discount, items }: CartDiscountProps) {
+export default function CartDiscount({
+  discount,
+  items,
+}: CartDiscountProps): JSX.Element {
   return (
     <StyledListItem>
       <div>
@@ -33,9 +40,9 @@ export default function CartDiscount({ discount, items }: CartDiscountProps) {
   );
 }
 
-function getDiscountedPrice(discount: any, items: any) {
+function getDiscountedPrice(discount: CartDiscountType, items: CartItem[]) {
   return discount.appliedItemIds?.reduce((acc: number, id: string) => {
-    const item = items.find((item: any) => item.id === id);
+    const item = items.find((item) => item.id === id);
 
     if (item) {
       return acc + (item.count * item.price * discount.rate);
@@ -45,9 +52,9 @@ function getDiscountedPrice(discount: any, items: any) {
   }, 0);
 }
 
-function getDiscountedItems(discount: any, items: any) {
+function getDiscountedItems(discount: CartDiscountType, items: CartItem[]) {
   return discount.appliedItemIds?.map((id: string) => {
-    const item = items.find((item: any) => item.id === id);
+    const item = items.find((item) => item.id === id);
 
     return (
       item && (
@@ -56,7 +63,8 @@ function getDiscountedItems(discount: any, items: any) {
         >
           {item.name}x{item.count},
           {' '}
-        </span>)
+        </span>
+      )
     );
   });
 }

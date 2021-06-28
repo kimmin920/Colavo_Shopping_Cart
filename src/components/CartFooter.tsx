@@ -5,7 +5,9 @@ type CartFooterProps = {
   totalPrice: number,
 };
 
-export default function CartFooter({ totalPrice }: CartFooterProps) {
+export default function CartFooter({
+  totalPrice,
+}: CartFooterProps): JSX.Element {
   return (
     <footer>
       <TotalPriceWrapper>

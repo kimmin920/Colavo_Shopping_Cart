@@ -3,7 +3,7 @@ import { PlusIconGrey, PlusIconPink } from '../styles/styledIcons';
 import { StyledLink } from '../styles/styledLink';
 import { StyledHeader } from '../styles/styledHeader';
 
-export default function CartHeader() {
+export default function CartHeader(): JSX.Element {
   return (
     <StyledHeader>
       <StyledLinkGrey to='/items'>

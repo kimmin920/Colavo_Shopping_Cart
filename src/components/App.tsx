@@ -12,7 +12,7 @@ import Item from './pages/ItemList';
 import Discount from './pages/DiscountList';
 import { fetchSalonData } from '../store/salonSlice';
 
-function App() {
+function App(): JSX.Element {
   const dispatch = useDispatch();
 
   useEffect(() => {

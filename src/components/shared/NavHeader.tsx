@@ -7,7 +7,9 @@ type NavHeaderProp = {
   title: string,
 };
 
-export default function NavHeader({ title }: NavHeaderProp) {
+export default function NavHeader({
+  title,
+}: NavHeaderProp): JSX.Element {
   return (
     <StyledNavHeader>
       <StyledLink to='/'>

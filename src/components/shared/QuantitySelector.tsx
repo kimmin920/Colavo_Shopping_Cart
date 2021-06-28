@@ -17,7 +17,7 @@ export default function QuantitySelector({
   max = 99,
   onStepUp,
   onStepDown,
-}: QuantitySelectorProps) {
+}: QuantitySelectorProps): JSX.Element {
   const isValueMin = value <= min;
   const isValueMax = value >= max;
 
