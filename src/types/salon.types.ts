@@ -1,16 +1,16 @@
 import { CurrencyCode, FetchStatus } from './global.types';
 
 export interface Item {
-  id: string,
-  count: number,
-  name: string,
-  price: number,
+  id: string;
+  count: number;
+  name: string;
+  price: number;
 }
 
 export interface Discount {
-  id: string,
-  name: string,
-  rate: number,
+  id: string;
+  name: string;
+  rate: number;
 }
 
 export interface FetchError {
@@ -31,7 +31,6 @@ export interface SalonData {
 export interface SalonDataState {
   data: SalonData;
   status: FetchStatus;
-  // TODO: check the type below
   error: FetchError | null;
 }
 
