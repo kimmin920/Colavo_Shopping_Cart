@@ -1,6 +1,7 @@
+import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCart } from '../../store';
-import { decreaceItemCount, increaseItemCount, updateTotalPrice } from '../../store/cartSlice';
+import { selectCart, selectSalonCurrency } from '../../store';
+import { decreaceItemCount, increaseItemCount, removeItem, updateTotalPrice } from '../../store/cartSlice';
 import {
   StyledList,
   StyledListItem,
@@ -12,32 +13,47 @@ import CartHeader from '../CartHeader';
 import CartFooter from '../CartFooter';
 import NavHeader from '../shared/NavHeader';
 import EmptyNotice from '../shared/EmptyNotice';
-import { useEffect, useLayoutEffect } from 'react';
+import getPercentage from '../../utils/getPercentage';
+import getLocalCurrency from '../../utils/getLocalCurrency';
+import { RowContainer } from '../../styles/RowContainer';
+import { ColumnContainer } from '../../styles/ColumnContainer';
+import DeleteButton from '../shared/DeleteButton';
 
 function EachItem({ item }: any) {
   const dispatch = useDispatch();
+  const currencyCode = useSelector(selectSalonCurrency);
+
+  function onChangeInput(e: any) {
+    console.log(e.currentTarget);
+  }
 
   return (
+    <>
     <StyledListItem>
       <div>
         <StyledItemTitle>{item.name}</StyledItemTitle>
         <StyledItemDescription>
-          {item.count} / {item.count * item.price} WON
+          {getLocalCurrency(item.count * item.price, currencyCode)}
         </StyledItemDescription>
       </div>
-      <span>
-        <button
-          onClick={() => dispatch(increaseItemCount({ id: item.id, count: 1 }))}
-        >
-          +
-        </button>
+      <RowContainer>
         <button
           onClick={() => dispatch(decreaceItemCount({ id: item.id, count: 1 }))}
         >
           -
         </button>
-      </span>
+        {item.count}
+        <button
+          onClick={() => dispatch(increaseItemCount({ id: item.id, count: 1 }))}
+        >
+          +
+        </button>
+        <DeleteButton
+          onClick={() => dispatch(removeItem(item.id))}
+        />
+      </RowContainer>
     </StyledListItem>
+    </>
   );
 }
 
@@ -84,7 +100,8 @@ function CartDiscount({ discount }: any) {
           {getDiscountedItems(discount)}
         </StyledItemDescription>
         <StyledItemDiscount>
-          -{getDiscountedPrice(discount)} WON({Math.floor(discount.rate * 100)}%)
+          -{getDiscountedPrice(discount)} WON
+          ({getPercentage(discount.rate)}%)
         </StyledItemDiscount>
       </div>
       <button>
