@@ -4,13 +4,12 @@ import styled, { css } from 'styled-components';
 import {
   Route,
   Switch,
-  Link,
   BrowserRouter as Router,
   Redirect,
 } from 'react-router-dom';
-import Cart from './Cart';
-import Item from './Item';
-import Discount from './Discount';
+import Cart from './pages/Cart';
+import Item from './pages/ItemList';
+import Discount from './pages/DiscountList';
 import { fetchSalonData } from '../store/salonSlice';
 
 function App() {
@@ -27,11 +26,6 @@ function App() {
   return (
     <AppContainer>
       <Router>
-        <Link to='/items'>+ 시술</Link>
-        {' '}
-        <Link to='/discount'>- 할인</Link>
-        {' '}
-        <Link to='/'>카트</Link>
         <Switch>
           <Route exact path='/' component={Cart} />
           <Route exact path='/items' component={Item} />
