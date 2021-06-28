@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledList = styled.ul`
-  height: 90%;
+  height: 65%;
   overflow: scroll;
 `;
 
