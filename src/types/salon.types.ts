@@ -7,10 +7,18 @@ export interface Item {
   price: number;
 }
 
+export interface Items {
+  [key: string]: Item;
+}
+
 export interface Discount {
   id: string;
   name: string;
   rate: number;
+}
+
+export interface Discounts {
+  [key: string]: Discount;
 }
 
 export interface FetchError {
@@ -34,12 +42,8 @@ export interface SalonDataState {
   error: FetchError | null;
 }
 
-export interface ObjectHavingKeys {
-  [key: string]: Item | Discount;
-}
-
 export interface ObjectValueHavingIds {
   [key: string]: {
-    id: string,
+    id: string;
   };
 }
