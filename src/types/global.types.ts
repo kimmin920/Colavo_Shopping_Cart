@@ -1,9 +1,9 @@
-export const enum CurrencyCode {
+export enum CurrencyCode {
   KRW = 'KRW',
   USD = 'USD',
 }
 
-export const enum FetchStatus {
+export enum FetchStatus {
   IDLE = 'idle',
   LOADING = 'loading',
   SUCCESS = 'success',
