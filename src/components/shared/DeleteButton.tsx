@@ -17,6 +17,10 @@ export default function DeleteButton({ onClick }: DeleteButtonProps) {
 }
 
 const StyledButton = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: fit-content;
   cursor: pointer;
+  margin-left: .5rem;
 `;
