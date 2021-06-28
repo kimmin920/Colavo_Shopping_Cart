@@ -3,6 +3,7 @@ import {
   ArrowLeft,
   Home,
   ShoppingCart,
+  X,
 } from 'react-feather';
 import styled from 'styled-components';
 
@@ -26,4 +27,8 @@ export const HomeIconGrey = styled(Home)`
 
 export const ShoppingCartPurple = styled(ShoppingCart)`
   color: ${({ theme }) => theme.purple};
+`;
+
+export const DeleteIconGrey = styled(X)`
+  color: ${({ theme }) => theme.grey};
 `;
