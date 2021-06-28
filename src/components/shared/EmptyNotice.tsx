@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { ShoppingCartPurple } from '../../styles/styledIcons';
+import { NoticeContainer } from './NoticeContainer';
 
 export default function EmptyNotice(): JSX.Element {
   return (
@@ -11,12 +11,3 @@ export default function EmptyNotice(): JSX.Element {
   );
 }
 
-const NoticeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-  color: ${({ theme }) => theme.grey};
-`;

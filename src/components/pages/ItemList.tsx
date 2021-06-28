@@ -9,6 +9,7 @@ import {
   StyledItemDescription,
 } from '../../styles/styledListItem';
 import getLocalCurrency from '../../utils/getLocalCurrency';
+import Loader from '../shared/Loader';
 import NavHeader from '../shared/NavHeader';
 
 export default function Item(): JSX.Element {
@@ -21,6 +22,7 @@ export default function Item(): JSX.Element {
     <>
       <NavHeader title='시술메뉴' />
       <StyledList>
+        {<Loader />}
         {itemsArray.map(item =>
           (
             <StyledListItem

@@ -4,8 +4,9 @@ import {
   Home,
   ShoppingCart,
   X,
+  Heart,
 } from 'react-feather';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const PlusIconGrey = styled(PlusCircle)`
   fill: ${({ theme }) => theme.grey};
@@ -31,4 +32,13 @@ export const ShoppingCartPurple = styled(ShoppingCart)`
 
 export const DeleteIconGrey = styled(X)`
   color: ${({ theme }) => theme.grey};
+`;
+
+export const HeartPurple = styled(Heart)`
+  fill: ${({ theme }) => theme.purple};
+  color: ${({ theme }) => theme.purple};
+
+  ${({ theme }) => css`
+    animation: ${theme.keyframes.heartBeat} .8s infinite;
+  `};
 `;
