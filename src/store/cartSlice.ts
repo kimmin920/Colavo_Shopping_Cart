@@ -22,7 +22,13 @@ export const cartSlice = createSlice({
         return;
       }
 
-      state.items.push(action.payload);
+      // TODO: delete totalPrice / discount if not needed;
+      state.items.push({
+        ...action.payload,
+        totalPrice: 0,
+        discount: 0,
+      });
+
       state.totalPrice = calculateTotalPrice(state.items);
       // TODO: if there's discounts, need to push id to them.
 
@@ -65,6 +71,8 @@ export const cartSlice = createSlice({
       const newDiscount = {
         ...action.payload,
         appliedItemIds: allItemIdsInCart,
+        // TODO: check correct price
+        totalPrice: 0,
       };
 
       if (state.discounts.some(discount => discount.id === newDiscount.id)) {

@@ -18,11 +18,13 @@ export function calculateTotalDiscounts(
   discounts.forEach((discount: CartDiscount) => {
     const { appliedItemIds, rate } = discount;
 
-    appliedItemIds?.forEach((id: string) => {
+    appliedItemIds.forEach((id: string) => {
       const targetItem = items.find((item) => item.id === id);
-      const { price, count } = targetItem;
 
-      totalDiscount += price * count * rate;
+      if (targetItem) {
+        const { price, count } = targetItem;
+        totalDiscount += price * count * rate;
+      }
     });
   });
 
