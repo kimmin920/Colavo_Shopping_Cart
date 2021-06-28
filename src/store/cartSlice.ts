@@ -1,32 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CartSliceState } from '../types/cart.types';
+import { Discount, Item } from '../types/salon.types';
 import {
   calculateTotalPrice,
   calculateItemPrice,
   calculateTotalDiscounts,
 } from '../utils/calculatePrice';
-
-interface Item {
-  id: string;
-  count: number;
-  name: string;
-  price: number;
-  totalPrice?: number;
-  discount?: number;
-};
-
-interface Discount {
-  id: string,
-  name: string,
-  rate: number,
-  appliedItemIds?: string[],
-  totalPrice?: number,
-};
-
-interface CartSliceState {
-  items: Item[];
-  discounts: Discount[];
-  totalPrice: number;
-};
 
 const initialState: CartSliceState = {
   items: [],
@@ -94,8 +73,8 @@ export const cartSlice = createSlice({
 
       state.discounts.push(newDiscount);
     },
-    removeDiscount: () => {},
-    clearCart: () => {},
+    // removeDiscount: () => {},
+    // clearCart: () => {},
     updateTotalPrice: (state) => {
       const totalItemPrice: number = calculateTotalPrice(state.items);
       const totalDiscount: number = calculateTotalDiscounts(state.discounts, state.items);
