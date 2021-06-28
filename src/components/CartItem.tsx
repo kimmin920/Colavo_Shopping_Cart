@@ -1,13 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectSalonCurrency } from '../store';
 import { decreaceItemCount, increaseItemCount, removeItem } from '../store/cartSlice';
 import { RowContainer } from '../styles/RowContainer';
 import { StyledListItem, StyledItemTitle, StyledItemDescription } from '../styles/styledListItem';
+import { CartItem } from '../types/cart.types';
 import getLocalCurrency from '../utils/getLocalCurrency';
 import DeleteButton from './shared/DeleteButton';
 import QuantitySelector from './shared/QuantitySelector';
 
-export default function CartItem({ item }: any) {
+type CartItemProps = {
+  item: CartItem,
+};
+
+export default function CartItem({ item }: CartItemProps): JSX.Element {
   const dispatch = useDispatch();
   const currencyCode = useSelector(selectSalonCurrency);
 
