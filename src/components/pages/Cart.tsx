@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCart } from '../store';
-import { decreaceItemCount, increaseItemCount, updateTotalPrice } from '../store/cartSlice';
+import { selectCart } from '../../store';
+import { decreaceItemCount, increaseItemCount, updateTotalPrice } from '../../store/cartSlice';
 import {
   StyledList,
   StyledListItem,
   StyledItemTitle,
   StyledItemDescription,
   StyledItemDiscount,
-} from '../styles/styledListItem';
+} from '../../styles/styledListItem';
+import CartHeader from '../CartHeader';
+import CartFooter from '../CartFooter';
+import NavHeader from '../shared/NavHeader';
+import EmptyNotice from '../shared/EmptyNotice';
+import { useEffect, useLayoutEffect } from 'react';
 
 function EachItem({ item }: any) {
   const dispatch = useDispatch();
@@ -93,15 +98,21 @@ function Cart() {
   const { items, totalPrice, discounts } = useSelector(selectCart);
   const dispatch = useDispatch();
 
+  // TODO: is side effect?
+  useLayoutEffect(() => {
+    dispatch(updateTotalPrice());
+  }, [items, discounts, dispatch]);
+
   return (
     <>
-      <h1>CART</h1>
+      <NavHeader title='장바구니' />
+      <CartHeader />
       <StyledList>
         {items.length > 0
           ? items.map(item =>
               <EachItem key={item.id} item={item} />
             )
-          : 'no items'}
+          : <EmptyNotice />}
         <div>
           {discounts.map(discount => (
             <CartDiscount
@@ -110,11 +121,10 @@ function Cart() {
             />
           ))}
         </div>
-        <button onClick={() => dispatch(updateTotalPrice())}>
-          UPDATE
-        </button>
       </StyledList>
-      <div>{totalPrice} WON</div>
+      <CartFooter
+        totalPrice={totalPrice}
+      />
     </>
   );
 }
