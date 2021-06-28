@@ -1,7 +1,6 @@
 import {
   PlusCircle,
   ArrowLeft,
-  Home,
   ShoppingCart,
   X,
   Heart,
@@ -22,7 +21,7 @@ export const ArrowLeftGrey = styled(ArrowLeft)`
   color: ${({ theme }) => theme.grey};
 `;
 
-export const HomeIconGrey = styled(Home)`
+export const ShoppingCartGrey = styled(ShoppingCart)`
   color: ${({ theme }) => theme.grey};
 `;
 

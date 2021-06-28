@@ -22,7 +22,7 @@ export default function Item(): JSX.Element {
     <>
       <NavHeader title='시술메뉴' />
       <StyledList>
-        {<Loader />}
+        {!itemsArray.length && <Loader />}
         {itemsArray.map(item =>
           (
             <StyledListItem

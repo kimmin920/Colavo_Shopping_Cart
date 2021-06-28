@@ -1,6 +1,7 @@
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { StyledHeader } from '../../styles/styledHeader';
-import { ArrowLeftGrey, HomeIconGrey } from '../../styles/styledIcons';
+import { ArrowLeftGrey, ShoppingCartGrey } from '../../styles/styledIcons';
 import { StyledLink } from '../../styles/styledLink';
 
 type NavHeaderProp = {
@@ -10,14 +11,16 @@ type NavHeaderProp = {
 export default function NavHeader({
   title,
 }: NavHeaderProp): JSX.Element {
+  const history = useHistory();
+
   return (
     <StyledNavHeader>
-      <StyledLink to='/'>
+      <BackButton onClick={() => history.goBack()}>
         <ArrowLeftGrey />
-      </StyledLink>
+      </BackButton>
       {title}
       <StyledLink to='/'>
-        <HomeIconGrey />
+        <ShoppingCartGrey />
       </StyledLink>
     </StyledNavHeader>
   );
@@ -26,4 +29,15 @@ export default function NavHeader({
 const StyledNavHeader = styled(StyledHeader)`
   justify-content: space-between;
   border: none;
+`;
+
+const BackButton = styled.div`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem .3rem 1rem .3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
 `;
