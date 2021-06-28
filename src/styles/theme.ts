@@ -23,7 +23,7 @@ const theme = {
   keyframes: {
     fadeInUp,
     heartBeat,
-  }
+  },
 };
 
 export default theme;

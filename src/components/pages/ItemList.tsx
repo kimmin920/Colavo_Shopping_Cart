@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { selectSalonCurrency, selectSalonItems } from '../../store';
-import { addItem, removeItem } from '../../store/cartSlice';
+import { addItem } from '../../store/cartSlice';
 import {
   StyledList,
   StyledListItem,
@@ -10,7 +11,7 @@ import {
 import getLocalCurrency from '../../utils/getLocalCurrency';
 import NavHeader from '../shared/NavHeader';
 
-export default function Item() {
+export default function Item(): JSX.Element {
   const dispatch = useDispatch();
   const items = useSelector(selectSalonItems);
   const currencyCode = useSelector(selectSalonCurrency);
@@ -35,14 +36,14 @@ export default function Item() {
               </div>
               <div>
                 {item.count}
-              <button
-                onClick={() => dispatch(addItem(item))}
-              >
+                <button
+                  onClick={() => dispatch(addItem(item))}
+                >
                 add
-              </button>
+                </button>
               </div>
             </StyledListItem>
-          )
+          ),
         )}
       </StyledList>
     </>
