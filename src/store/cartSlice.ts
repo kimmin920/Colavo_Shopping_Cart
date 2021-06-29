@@ -84,6 +84,15 @@ export const cartSlice = createSlice({
     removeDiscount: (state, action: PayloadAction<string>) => {
       state.discounts = state.discounts.filter((discount) => discount.id !== action.payload);
     },
+    removeDiscountItem: (state, action: PayloadAction<{ discountId: string, itemId: string }>) => {
+      const targetIndex = state.discounts.findIndex((discount) => discount.id === action.payload.discountId);
+      const targetDiscount = state.discounts[targetIndex];
+
+      if (targetDiscount) {
+        state.discounts[targetIndex].appliedItemIds
+        = targetDiscount.appliedItemIds.filter((id) => id !== action.payload.itemId);
+      }
+    },
     updateTotalPrice: (state) => {
       const totalItemPrice: number = calculateTotalPrice(state.items);
       const totalDiscount: number = calculateTotalDiscounts(state.discounts, state.items);
@@ -100,6 +109,7 @@ export const {
   decreaceItemCount,
   addDiscount,
   removeDiscount,
+  removeDiscountItem,
   updateTotalPrice,
 } = cartSlice.actions;
 
