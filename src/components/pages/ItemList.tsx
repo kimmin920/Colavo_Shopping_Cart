@@ -17,7 +17,6 @@ import NavHeader from '../shared/NavHeader';
 import Styledbutton from '../shared/Styledbutton';
 import { CheckIconPurple } from '../shared/StyledIcons';
 import { StyledLinkPurple } from '../shared/StyledLinkPurple';
-import styled from 'styled-components';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
