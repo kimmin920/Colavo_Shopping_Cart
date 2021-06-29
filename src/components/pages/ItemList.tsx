@@ -17,6 +17,7 @@ import NavHeader from '../shared/NavHeader';
 import Styledbutton from '../shared/Styledbutton';
 import { CheckIconPurple } from '../shared/StyledIcons';
 import { StyledLinkPurple } from '../shared/StyledLinkPurple';
+import styled from 'styled-components';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
@@ -33,7 +34,9 @@ export default function Item(): JSX.Element {
   return (
     <>
       <NavHeader title='시술메뉴' />
-      <StyledList>
+      <StyledList
+        height='80%'
+      >
         {itemsArray.length > 0
           ? itemsArray.map(item => (
             <StyledListItem

@@ -12,6 +12,7 @@ import NavHeader from '../shared/NavHeader';
 import { CheckIconPurple } from '../shared/StyledIcons';
 import Styledbutton from '../shared/Styledbutton';
 import Loader from '../shared/Loader';
+import { StyledLinkPurple } from '../shared/StyledLinkPurple';
 
 export default function Discount(): JSX.Element {
   const dispatch = useDispatch();
@@ -26,7 +27,9 @@ export default function Discount(): JSX.Element {
   return (
     <>
       <NavHeader title='할인' />
-      <StyledList>
+      <StyledList
+        height='80%'
+      >
         {discountsArray.length > 0
           ? discountsArray.map(discount => (
             <StyledListItem key={discount.id}>
@@ -48,6 +51,9 @@ export default function Discount(): JSX.Element {
             </StyledListItem>))
           : <Loader />}
       </StyledList>
+      <StyledLinkPurple to='/'>
+        장바구니로 돌아가기
+      </StyledLinkPurple>
     </>
   );
 }
