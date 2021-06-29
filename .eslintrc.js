@@ -1,24 +1,24 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es2021': true
+    'es2021': true,
   },
   'extends': [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaFeatures': {
-      'jsx': true
+      'jsx': true,
     },
     'ecmaVersion': 12,
-    'sourceType': 'module'
+    'sourceType': 'module',
   },
   'plugins': [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
   'rules': {
     'semi': ['error', 'always'],
@@ -34,12 +34,11 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'object-curly-spacing': ['error', 'always'],
     'no-restricted-syntax': ['error', 'ForOfStatement'],
-    'no-use-before-define': ['error', { functions: false }],
     'no-await-in-loop': 'off',
     'object-shorthand': ['error', 'properties'],
     'no-param-reassign': ['error', { props: false }],
     'arrow-body-style': ['warn', 'as-needed'],
     'wrap-iife': ['error', 'inside'],
     'no-unused-expressions': 'off',
-  }
+  },
 };
