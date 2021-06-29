@@ -32,6 +32,7 @@ const TotalPriceWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: .3rem;
 `;
 
 const TotalPrice = styled.div`
