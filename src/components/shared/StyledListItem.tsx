@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const StyledList = styled.ul`
-  height: 65%;
+export const StyledList = styled.ul<{ height?: string }>`
+  height: ${props => props.height ?? '65%'};
   overflow: scroll;
 `;
 
