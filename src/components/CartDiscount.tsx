@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { selectSalonCurrency } from '../store';
+import { removeDiscount } from '../store/cartSlice';
 import {
   StyledListItem,
   StyledItemTitle,
@@ -8,7 +11,9 @@ import {
   CartDiscount as CartDiscountType,
   CartItem,
 } from '../types/cart.types';
+import getLocalCurrency from '../utils/getLocalCurrency';
 import getPercentage from '../utils/getPercentage';
+import DeleteButton from './shared/DeleteButton';
 
 type CartDiscountProps = {
   discount: CartDiscountType,
@@ -19,6 +24,9 @@ export default function CartDiscount({
   discount,
   items,
 }: CartDiscountProps): JSX.Element {
+  const dispatch = useDispatch();
+  const currencyCode = useSelector(selectSalonCurrency);
+
   return (
     <StyledListItem>
       <div>
@@ -29,13 +37,18 @@ export default function CartDiscount({
           {getDiscountedItems(discount, items)}
         </StyledItemDescription>
         <StyledItemDiscount>
-          -{getDiscountedPrice(discount, items)} WON
+          -{getLocalCurrency(getDiscountedPrice(discount, items), currencyCode)}
           ({getPercentage(discount.rate)}%)
         </StyledItemDiscount>
       </div>
-      <button>
+      <button
+        onClick={() => console.log(discount.appliedItemIds)}
+      >
         수정
       </button>
+      <DeleteButton
+        onClick={() => dispatch(removeDiscount(discount.id))}
+      />
     </StyledListItem>
   );
 }

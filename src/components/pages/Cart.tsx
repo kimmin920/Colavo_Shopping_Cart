@@ -1,6 +1,5 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import CartHeader from '../CartHeader';
 import CartFooter from '../CartFooter';
 import NavHeader from '../shared/NavHeader';
@@ -12,7 +11,11 @@ import { updateTotalPrice } from '../../store/cartSlice';
 import { StyledList } from '../../styles/styledListItem';
 
 function Cart(): JSX.Element {
-  const { items, totalPrice, discounts } = useSelector(selectCart);
+  const {
+    items,
+    totalPrice,
+    discounts,
+  } = useSelector(selectCart);
   const dispatch = useDispatch();
 
   // TODO: is side effect?
@@ -31,13 +34,15 @@ function Cart(): JSX.Element {
           )
           : <EmptyNotice />}
         <div>
-          {discounts.map(discount => (
-            <CartDiscount
-              key={discount.id}
-              discount={discount}
-              items={items}
-            />
-          ))}
+          {discounts.length > 0
+            && (
+              discounts.map(discount => (
+                <CartDiscount
+                  key={discount.id}
+                  discount={discount}
+                  items={items}
+                />
+              )))}
         </div>
       </StyledList>
       <CartFooter

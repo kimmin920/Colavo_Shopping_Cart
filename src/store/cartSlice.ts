@@ -81,8 +81,9 @@ export const cartSlice = createSlice({
 
       state.discounts.push(newDiscount);
     },
-    // removeDiscount: () => {},
-    // clearCart: () => {},
+    removeDiscount: (state, action: PayloadAction<string>) => {
+      state.discounts = state.discounts.filter((discount) => discount.id !== action.payload);
+    },
     updateTotalPrice: (state) => {
       const totalItemPrice: number = calculateTotalPrice(state.items);
       const totalDiscount: number = calculateTotalDiscounts(state.discounts, state.items);
@@ -98,6 +99,7 @@ export const {
   increaseItemCount,
   decreaceItemCount,
   addDiscount,
+  removeDiscount,
   updateTotalPrice,
 } = cartSlice.actions;
 
