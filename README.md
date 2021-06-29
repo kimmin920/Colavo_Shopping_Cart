@@ -5,7 +5,7 @@
 
 1. 디렉토리 이동
     ```
-    cd COLAV-CART
+    cd Colavo_Shopping_Cart
     ```
 
 2. package.json에 정의된 패키지 설치
