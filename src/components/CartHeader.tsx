@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { PlusIconGrey, PlusIconPink } from '../styles/styledIcons';
-import { StyledLink } from '../styles/styledLink';
-import { StyledHeader } from '../styles/styledHeader';
+import { PlusIconGrey, PlusIconPink } from './shared/StyledIcons';
+import { StyledLink } from './shared/StyledLink';
+import { StyledHeader } from './shared/StyledHeader';
 
 export default function CartHeader(): JSX.Element {
   return (

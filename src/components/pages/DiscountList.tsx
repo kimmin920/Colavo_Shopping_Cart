@@ -6,10 +6,10 @@ import {
   StyledListItem,
   StyledItemTitle,
   StyledItemDiscount,
-} from '../../styles/styledListItem';
+} from '../shared/StyledListItem';
 import getPercentage from '../../utils/getPercentage';
 import NavHeader from '../shared/NavHeader';
-import { CheckIconPurple } from '../../styles/styledIcons';
+import { CheckIconPurple } from '../shared/StyledIcons';
 import Styledbutton from '../shared/Styledbutton';
 import Loader from '../shared/Loader';
 

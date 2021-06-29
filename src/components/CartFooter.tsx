@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledLink } from '../styles/styledLink';
+import { StyledLink } from './shared/StyledLink';
 
 type CartFooterProps = {
   totalPrice: number,

@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 import styled from 'styled-components';
-import { DeleteIconGrey } from '../../styles/styledIcons';
+import { DeleteIconGrey } from './StyledIcons';
 
 type DeleteButtonProps = {
   onClick: MouseEventHandler,

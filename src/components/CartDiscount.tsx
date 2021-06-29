@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSalonCurrency } from '../store';
 import { changeDiscountItemIds, removeDiscount } from '../store/cartSlice';
-import { RowContainer } from '../styles/RowContainer';
+import { RowContainer } from './shared/RowContainer';
 import {
   StyledListItem,
   StyledItemTitle,
   StyledItemDescription,
   StyledItemDiscount,
   StyledList,
-} from '../styles/styledListItem';
+} from './shared/StyledListItem';
 import {
   CartDiscount as CartDiscountType,
   CartItem,

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
-import { DeleteIconGrey, HeartPurple } from '../../styles/styledIcons';
+import { DeleteIconGrey, HeartPurple } from './StyledIcons';
 import { MouseEventHandler } from 'react';
 
 type modalProps = {

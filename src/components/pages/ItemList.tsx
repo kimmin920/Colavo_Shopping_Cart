@@ -11,11 +11,11 @@ import {
   StyledListItem,
   StyledItemTitle,
   StyledItemDescription,
-} from '../../styles/styledListItem';
+} from '../shared/StyledListItem';
 import Loader from '../shared/Loader';
 import NavHeader from '../shared/NavHeader';
 import Styledbutton from '../shared/Styledbutton';
-import { CheckIconPurple } from '../../styles/styledIcons';
+import { CheckIconPurple } from '../shared/StyledIcons';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();

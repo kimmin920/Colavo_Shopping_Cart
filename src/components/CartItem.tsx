@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectSalonCurrency } from '../store';
 import { decreaceItemCount, increaseItemCount, removeItem } from '../store/cartSlice';
-import { RowContainer } from '../styles/RowContainer';
-import { StyledListItem, StyledItemTitle, StyledItemDescription } from '../styles/styledListItem';
+import { RowContainer } from './shared/RowContainer';
+import { StyledListItem, StyledItemTitle, StyledItemDescription } from './shared/StyledListItem';
 import { CartItem as CartItemType } from '../types/cart.types';
 import getLocalCurrency from '../utils/getLocalCurrency';
 import DeleteButton from './shared/DeleteButton';

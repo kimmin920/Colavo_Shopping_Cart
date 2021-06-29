@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react';
 import styled from 'styled-components';
 import StyledButton from './Styledbutton';
-import { RowContainer } from '../../styles/RowContainer';
+import { RowContainer } from './RowContainer';
 
 type QuantitySelectorProps = {
   value: number,

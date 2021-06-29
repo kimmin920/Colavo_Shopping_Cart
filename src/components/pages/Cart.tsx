@@ -8,7 +8,7 @@ import CartItem from '../CartItem';
 import CartDiscount from '../CartDiscount';
 import { selectCart } from '../../store';
 import { updateTotalPrice } from '../../store/cartSlice';
-import { StyledList } from '../../styles/styledListItem';
+import { StyledList } from '../shared/StyledListItem';
 
 function Cart(): JSX.Element {
   const {

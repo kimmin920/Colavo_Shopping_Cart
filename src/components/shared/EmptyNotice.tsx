@@ -1,4 +1,4 @@
-import { ShoppingCartPurple } from '../../styles/styledIcons';
+import { ShoppingCartPurple } from './StyledIcons';
 import { NoticeContainer } from './NoticeContainer';
 
 export default function EmptyNotice(): JSX.Element {

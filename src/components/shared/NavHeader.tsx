@@ -1,8 +1,8 @@
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { StyledHeader } from '../../styles/styledHeader';
-import { ArrowLeftGrey, ShoppingCartGrey } from '../../styles/styledIcons';
-import { StyledLink } from '../../styles/styledLink';
+import { StyledHeader } from './StyledHeader';
+import { ArrowLeftGrey, ShoppingCartGrey } from './StyledIcons';
+import { StyledLink } from './StyledLink';
 
 type NavHeaderProp = {
   title: string,
