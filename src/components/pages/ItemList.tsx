@@ -1,30 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux';
-
-import { selectSalonCurrency, selectSalonItems } from '../../store';
+import {
+  selectCartItems,
+  selectSalonCurrency,
+  selectSalonItems,
+} from '../../store';
 import { addItem } from '../../store/cartSlice';
+import getLocalCurrency from '../../utils/getLocalCurrency';
 import {
   StyledList,
   StyledListItem,
   StyledItemTitle,
   StyledItemDescription,
 } from '../../styles/styledListItem';
-import getLocalCurrency from '../../utils/getLocalCurrency';
 import Loader from '../shared/Loader';
 import NavHeader from '../shared/NavHeader';
+import Styledbutton from '../shared/Styledbutton';
+import { CheckIconPurple } from '../../styles/styledIcons';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
-  const items = useSelector(selectSalonItems);
+
   const currencyCode = useSelector(selectSalonCurrency);
+  const items = useSelector(selectSalonItems);
   const itemsArray = Object.values(items);
+  const cartItems = useSelector(selectCartItems);
+
+  function isInCart(itemId: string) {
+    return cartItems.find((cartItem) => cartItem.id === itemId);
+  }
 
   return (
     <>
       <NavHeader title='시술메뉴' />
       <StyledList>
-        {!itemsArray.length && <Loader />}
-        {itemsArray.map(item =>
-          (
+        {itemsArray.length > 0
+          ? itemsArray.map(item => (
             <StyledListItem
               key={item.id}
             >
@@ -36,17 +46,15 @@ export default function Item(): JSX.Element {
                   {getLocalCurrency(item.price, currencyCode)}
                 </StyledItemDescription>
               </div>
-              <div>
-                {item.count}
-                <button
-                  onClick={() => dispatch(addItem(item))}
-                >
-                add
-                </button>
-              </div>
-            </StyledListItem>
-          ),
-        )}
+              {isInCart(item.id)
+                ? <CheckIconPurple />
+                : (
+                  <Styledbutton
+                    onClick={() => dispatch(addItem(item))}
+                    text='담기'
+                  />)}
+            </StyledListItem>))
+          : <Loader />}
       </StyledList>
     </>
   );

@@ -16,6 +16,7 @@ export const StyledListItem = styled.div`
 `;
 
 export const StyledItemTitle = styled.div`
+  max-width: 300px;
   color: ${({ theme }) => theme.black};
   font-size: 1rem;
 `;

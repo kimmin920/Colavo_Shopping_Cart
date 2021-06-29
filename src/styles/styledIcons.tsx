@@ -4,6 +4,7 @@ import {
   ShoppingCart,
   X,
   Heart,
+  Check,
 } from 'react-feather';
 import styled, { css } from 'styled-components';
 
@@ -40,4 +41,8 @@ export const HeartPurple = styled(Heart)`
   ${({ theme }) => css`
     animation: ${theme.keyframes.heartBeat} .8s infinite;
   `};
+`;
+
+export const CheckIconPurple = styled(Check)`
+  color: ${({ theme }) => theme.purple};
 `;

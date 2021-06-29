@@ -26,4 +26,5 @@ const StyledButton = styled.button`
   height: 100%;
   border: none;
   cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer' };
+  padding: .5rem;
 `;
