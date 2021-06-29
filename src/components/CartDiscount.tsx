@@ -51,6 +51,7 @@ export default function CartDiscount({
 
     setIsModalOpen(false);
   }
+
   return (
     <>
       <StyledListItem>

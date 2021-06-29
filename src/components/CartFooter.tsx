@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { selectSalonCurrency } from '../store';
 import getLocalCurrency from '../utils/getLocalCurrency';
-import { StyledLink } from './shared/StyledLink';
+import { StyledLinkPurple } from './shared/StyledLinkPurple';
 
 type CartFooterProps = {
   totalPrice: number,
@@ -37,14 +37,4 @@ const TotalPriceWrapper = styled.div`
 
 const TotalPrice = styled.div`
   font-size: 2rem;
-`;
-
-const StyledLinkPurple = styled(StyledLink)`
-  background-color: ${({ theme }) => theme.purple};
-  width: 100%;
-  color: white;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.lightPurple};
-  }
 `;
