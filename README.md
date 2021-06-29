@@ -1,6 +1,7 @@
 
 # COLAVO_SHOPPING_CART
 
+
 ## 📖 프로젝트 사용 방법
 
 1. 디렉토리 이동
@@ -18,7 +19,7 @@
     npm start
     ```
 
-## Commit convention
+## ✏️ 커밋 메세지 규칙
 ```
   feat: (new feature for the user, not a new feature for build script)
   fix: (bug fix for the user, not a fix to a build script)
@@ -29,5 +30,5 @@
   chore: (updating grunt tasks etc; no production code change)
   install: (install external package (eg. npm))
   uninstall: (uninstall external package (eg. npm))
-  add: (add new script eg. store, reducer..)
+  add: (add new script)
 ```

@@ -22,7 +22,6 @@ export const cartSlice = createSlice({
         return;
       }
 
-      // TODO: delete totalPrice / discount if not needed;
       state.items.push({
         ...action.payload,
         totalPrice: 0,
@@ -30,7 +29,6 @@ export const cartSlice = createSlice({
       });
 
       state.totalPrice = calculateTotalPrice(state.items);
-      // TODO: if there's discounts, need to push id to them.
 
       if (state.discounts.length > 0) {
         state.discounts.forEach((discount) => {
@@ -64,14 +62,12 @@ export const cartSlice = createSlice({
       const allItemIdsInCart = Object.values(state.items).map(item => item.id);
 
       if (allItemIdsInCart.length === 0) {
-        // NOTE: no items// add handler
         return;
       }
 
       const newDiscount = {
         ...action.payload,
         appliedItemIds: allItemIdsInCart,
-        // TODO: check correct price
         totalPrice: 0,
       };
 
@@ -89,16 +85,7 @@ export const cartSlice = createSlice({
       appliedItemIds: string[],
     }>) => {
       const targetIndex = state.discounts.findIndex((discount) => discount.id === action.payload.discountId);
-
       state.discounts[targetIndex].appliedItemIds = action.payload.appliedItemIds;
-      // if (targetDiscount) {
-      //   if (targetDiscount.appliedItemIds.includes(action.payload.itemId)) {
-      //     state.discounts[targetIndex].appliedItemIds
-      //     = targetDiscount.appliedItemIds.filter((id) => id !== action.payload.itemId);
-      //   } else {
-      //     state.discounts[targetIndex].appliedItemIds.push(action.payload.itemId);
-      //   }
-      // }
     },
     updateTotalPrice: (state) => {
       const totalItemPrice: number = calculateTotalPrice(state.items);

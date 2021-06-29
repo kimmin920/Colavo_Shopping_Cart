@@ -18,7 +18,6 @@ function Cart(): JSX.Element {
   } = useSelector(selectCart);
   const dispatch = useDispatch();
 
-  // TODO: is side effect?
   useLayoutEffect(() => {
     dispatch(updateTotalPrice());
   }, [items, discounts, dispatch]);

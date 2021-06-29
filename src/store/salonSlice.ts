@@ -3,7 +3,6 @@ import { CurrencyCode, FetchStatus } from '../types/global.types';
 import { FetchError, SalonData, SalonDataState } from '../types/salon.types';
 import formatWithIds from '../utils/formatWithIds';
 
-// TODO: check secodn arg;
 export const fetchSalonData = createAsyncThunk<
     SalonData,
     void,
