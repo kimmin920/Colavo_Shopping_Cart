@@ -1,4 +1,7 @@
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { selectSalonCurrency } from '../store';
+import getLocalCurrency from '../utils/getLocalCurrency';
 import { StyledLink } from './shared/StyledLink';
 
 type CartFooterProps = {
@@ -8,12 +11,13 @@ type CartFooterProps = {
 export default function CartFooter({
   totalPrice,
 }: CartFooterProps): JSX.Element {
+  const currencyCode = useSelector(selectSalonCurrency);
   return (
     <footer>
       <TotalPriceWrapper>
         합계
         <TotalPrice>
-          {totalPrice}
+          {getLocalCurrency(totalPrice, currencyCode)}
         </TotalPrice>
       </TotalPriceWrapper>
       <StyledLinkPurple to='/'>
