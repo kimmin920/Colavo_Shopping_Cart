@@ -16,6 +16,7 @@ import Loader from '../shared/Loader';
 import NavHeader from '../shared/NavHeader';
 import Styledbutton from '../shared/Styledbutton';
 import { CheckIconPurple } from '../shared/StyledIcons';
+import { StyledLinkPurple } from '../shared/StyledLinkPurple';
 
 export default function Item(): JSX.Element {
   const dispatch = useDispatch();
@@ -56,6 +57,9 @@ export default function Item(): JSX.Element {
             </StyledListItem>))
           : <Loader />}
       </StyledList>
+      <StyledLinkPurple to='/'>
+        장바구니로 돌아가기
+      </StyledLinkPurple>
     </>
   );
 }

@@ -10,7 +10,7 @@ import { selectCart } from '../../store';
 import { updateTotalPrice } from '../../store/cartSlice';
 import { StyledList } from '../shared/StyledListItem';
 
-function Cart(): JSX.Element {
+export default function Cart(): JSX.Element {
   const {
     items,
     totalPrice,
@@ -50,5 +50,3 @@ function Cart(): JSX.Element {
     </>
   );
 }
-
-export default Cart;
