@@ -1,14 +1,14 @@
 import {
   Items,
   Discounts,
+  Item,
+  Discount,
 } from '../types/salon.types';
 
 type FormattableObject = Items | Discounts;
 
 interface formattedObject {
-  [key: string]: {
-    id: string;
-  };
+  [key: string]: Item | Discount;
 }
 
 export default function formatWithIds(object: FormattableObject): formattedObject {
