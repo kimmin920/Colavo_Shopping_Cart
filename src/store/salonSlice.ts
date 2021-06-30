@@ -9,7 +9,7 @@ export const fetchSalonData = createAsyncThunk<
     { rejectValue: FetchError }
   >(
     'items/fetchSalonData',
-    async (payload, thunkApi) => {
+    async (_payload, thunkApi) => {
       const response = await fetch('https://us-central1-colavolab.cloudfunctions.net/requestAssignmentCalculatorData');
 
       if (response.status !== 200) {
@@ -25,7 +25,7 @@ export const fetchSalonData = createAsyncThunk<
         currencyCode: data['currency_code'],
         items: formatWithIds(data.items),
         discounts: formatWithIds(data.discounts),
-      } as unknown as SalonData;
+      } as SalonData;
     });
 
 const initialState: SalonDataState = {
