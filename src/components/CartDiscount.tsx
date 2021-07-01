@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSalonCurrency } from '../store';
 import { changeDiscountItemIds, removeDiscount } from '../store/cartSlice';
@@ -19,7 +20,6 @@ import DeleteButton from './shared/DeleteButton';
 import Styledbutton from './shared/Styledbutton';
 import Modal from './shared/Modal';
 import useModal from '../hooks/useModal';
-import { useState } from 'react';
 
 type CartDiscountProps = {
   discount: CartDiscountType,
