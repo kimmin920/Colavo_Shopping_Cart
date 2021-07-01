@@ -30,7 +30,7 @@ export const cartSlice = createSlice({
 
       if (state.discounts.length > 0) {
         state.discounts.forEach((discount) => {
-          discount.appliedItemIds?.push(action.payload.id);
+          discount.appliedItemIds.push(action.payload.id);
         });
       }
     },
