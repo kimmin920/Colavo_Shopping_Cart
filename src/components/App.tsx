@@ -16,11 +16,7 @@ function App(): JSX.Element {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function getItems() {
-      await dispatch(fetchSalonData());
-    }
-
-    getItems();
+    dispatch(fetchSalonData());
   }, [dispatch]);
 
   return (
