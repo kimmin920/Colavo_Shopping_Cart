@@ -28,9 +28,11 @@ export default function Cart(): JSX.Element {
       <CartHeader />
       <StyledList>
         {items.length > 0
-          ? items.map(item =>
-            <CartItem key={item.id} item={item} />,
-          )
+          ? items.map(item => (
+            <CartItem
+              key={item.id}
+              item={item}
+            />))
           : <EmptyNotice />}
         <div>
           {discounts.length > 0
